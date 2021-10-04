@@ -12,16 +12,20 @@ const finishedList = document.querySelector('.list__progress--finished');
 const unfinishedNum = document.querySelector('.unfinished-num');
 //新增事項按鈕
 const addBtn = document.querySelector('.list__add-btn');
-//移除事項按鈕
-const deleteBtn = document.querySelector('.list__delete-btn');
+//移除已完成事項
+const clearFinishedBtn = document.querySelector('.list__clear-finished');
+
 let data = [{
-    content: '把冰箱發霉的檸檬拿去丟'
+    content: '把冰箱發霉的檸檬拿去丟',
+    checked: false
   },
   {
-    content: '打電話叫媽媽匯款給我'
+    content: '打電話叫媽媽匯款給我',
+    checked: false
   },
   {
-    content: '整理電腦資料夾'
+    content: '整理電腦資料夾',
+    checked: false
   }
 ];
 
@@ -33,8 +37,8 @@ function renderData() {
           <input type="checkbox" class="list__checkbox">
           <span class="list__word">${item.content}</span>
         </label>
-        <a href="#" class="list__delete-btn" data-num="${index}">
-          <i class="fas fa-times"></i>
+        <a href="#" class="list__delete-btn">
+          <i class="fas fa-times" data-num="${index}"></i>
         </a>
       </li>`
   })
@@ -43,7 +47,7 @@ function renderData() {
 }
 // 網頁初始化設定
 renderData();
-console.log(deleteBtn);
+console.log(data);
 
 //新增待辦事項
 addBtn.addEventListener('click', function (e) {
@@ -55,4 +59,21 @@ addBtn.addEventListener('click', function (e) {
   data.push(listObj);
   renderData();
   inputContent.value = '';
+});
+
+list.addEventListener('click', function (e) {
+  // let checkboxList = document.querySelectorAll('li');
+  // if (e.target.nodeName == 'SPAN') {
+  //   console.log('11111');
+  // } else {
+  //   return;
+  // }
+
+  if (e.target.nodeName == 'I') {
+    let num = e.target.getAttribute('data-num');
+    data.splice(num, 1);
+    renderData();
+  } else {
+    return;
+  }
 });
