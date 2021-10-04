@@ -1,0 +1,205 @@
+// 清單設計
+.list {
+
+    // 標題
+    &__title {
+        font: {
+            size: 3rem;
+            family: "Baloo Tamma 2";
+            weight: bold;
+        }
+
+        letter-spacing: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    // 輸入框
+    &__input {
+        padding: 4px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    //輸入欄
+    &__input-box {
+        width: 100%;
+        border: none;
+        outline: 0;
+        padding: 8px 20px;
+    }
+
+    //新增按鈕
+    &__add-btn {
+        font: {
+            size: 32px;
+            weight: bold;
+        }
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $dark;
+        color: $light;
+        padding: 8px 15px;
+        transition: all .3s;
+
+        &:hover {
+            background-color: $gray;
+        }
+    }
+
+    //清單完成進度
+    &__progress {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+
+        &-item {
+            display: block;
+            width: 100%;
+            display: block;
+            text-align: center;
+            border-bottom: 1px solid $light;
+
+            >a {
+                padding: 20px;
+                display: block;
+                transition: all .3s;
+                color: $gray;
+                border-bottom: 3px solid transparent;
+
+                &:hover {
+                    color: $dark;
+                }
+            }
+
+            //當前位置
+            &--active {
+                border-bottom: 3px solid $dark;
+
+                >a {
+                    color: $dark;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    //清單子項目
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        cursor: pointer;
+
+        &:hover {
+            .list__delete-btn {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__word {
+        display: block;
+        width: 100%;
+        padding: 20px 0px;
+        margin: 0 15px;
+        border-bottom: 1px solid $light;
+        position: relative;
+
+        //打勾框
+        &:before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            left: -35px;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $gray;
+            border-radius: 5px;
+            transition: all .3s;
+        }
+
+        //勾勾
+        &:after {
+            content: '';
+            opacity: 0;
+            position: absolute;
+            top: 15px;
+            left: -28px;
+            transform: rotate(45deg);
+            width: 8px;
+            height: 16px;
+            transition: all .3s;
+
+            border: {
+                bottom: 3px solid $yellow;
+                right: 3px solid $yellow;
+            }
+        }
+    }
+
+    //隱藏勾選格
+    &__checkbox {
+        opacity: 0;
+    }
+
+    //刪除按鈕
+    &__delete-btn {
+        opacity: 0;
+        font-size: 20px;
+        color: $dark;
+        transition: all .1s;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+
+    //下方提示文字
+    &__tip {
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 25px;
+    }
+
+    //清除已完成項目
+    &__clear-finished {
+        color: $gray;
+        transition: all .3s;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+}
+
+//待完成數量
+.unfinished-num {
+    margin-right: 0.3rem;
+}
+
+//點擊事件
+input:checked {
+    ~.list__word {
+        color: $gray;
+        text-decoration: line-through;
+
+        &:before {
+            opacity: 0;
+        }
+
+        &:after {
+            opacity: 1;
+        }
+    }
+}

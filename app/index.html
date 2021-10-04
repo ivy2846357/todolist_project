@@ -1,0 +1,40 @@
+---
+title: 首頁
+layout: ./app/layout.ejs
+engine: ejs
+current: index
+---
+
+<div class="container">
+  <h1 class="list__title">TO DO LIST</h1>
+  <!-- 待辦事項輸入框 -->
+  <div class="card card__radius card__shadow list__input">
+    <input type="text" placeholder="請輸入待辦事項" class="list__input-box">
+    <a href="#" class="list__add-btn card__radius">+</a>
+  </div>
+  <!-- 待辦事項清單 -->
+  <div class="card card__radius card__shadow card__list">
+    <!-- 待辦事項進度 -->
+    <ul class="list__progress">
+      <li class="list__progress-item list__progress-item--active list__progress--all"><a href="#" class="">全部</a></li>
+      <li class="list__progress-item list__progress--unfinished"><a href="#" class="">待完成</a></li>
+      <li class="list__progress-item list__progress--finished"><a href="#" class="">已完成</a></li>
+    </ul>
+    <!-- 待辦事項內容 -->
+    <ul class="list">
+      <!--       <li class="list__item">
+        <label class="list__content">
+          <input type="checkbox" class="list__checkbox">
+          <span class="list__word"></span>
+        </label>
+        <a href="#" class="list__delete-btn" data-num="">
+          <i class="fas fa-times"></i>
+        </a>
+      </li> -->
+    </ul>
+    <div class="list__tip">
+      <p class="list__unfinished"><span class="unfinished-num">0</span>個待完成項目</p>
+      <a class="list__clear-finished" href="#">清除已完成項目</a>
+    </div>
+  </div>
+</div>

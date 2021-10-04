@@ -1,0 +1,13 @@
+// 清單外觀設計
+.card {
+    width: 100%;
+    background-color: #fff;
+
+    &__radius {
+        border-radius: 10px;
+    }
+
+    &__shadow {
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+    }
+}
