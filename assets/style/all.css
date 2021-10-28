@@ -34,7 +34,8 @@ body {
           flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  padding: 20px; }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -223,8 +224,7 @@ table {
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 0.5rem; }
+          justify-content: space-between; }
   .list__progress-item {
     display: block;
     width: 100%;
@@ -254,8 +254,8 @@ table {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 20px;
-  cursor: pointer; }
+  cursor: pointer;
+  width: 100%; }
   .list__item:hover .list__delete-btn {
     opacity: 1; }
 
@@ -273,7 +273,7 @@ table {
   display: block;
   width: 100%;
   padding: 20px 0px;
-  margin: 0 15px;
+  margin-left: 40px;
   border-bottom: 1px solid #efefef;
   position: relative; }
   .list__word:before {
@@ -314,9 +314,21 @@ table {
   color: #333;
   -webkit-transition: all .1s;
   -o-transition: all .1s;
-  transition: all .1s; }
+  transition: all .1s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 10%;
+  height: 57px; }
   .list__delete-btn:hover {
-    color: #ffd371; }
+    color: #ffd371;
+    background-color: #333; }
 
 .list__tip {
   font-size: 14px;
